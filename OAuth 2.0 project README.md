@@ -5,3 +5,5 @@ The second project of OAuth 2.0 course:
 3. resource-server: OAuth2 Resource Server, Web, Devtools, Lombok
 4. album-service: OAuth2 Resource Server, Web, Eureka Client, DevTools  
 5. photo-service: OAuth2 Resource Server, Web, Eureka Client, DevTools
+
+added new microservices: my-remote-user-storage-provider, photo-app-web-client, social-login-web-client, spa-example
