@@ -1,0 +1,36 @@
+server:
+  port: 8082
+spring:
+  cloud:
+    gateway:
+      routes[0]:
+        id: users-status-check
+        uri: lb://demo-resource-server
+        predicates[0]: Path=/users/status/check
+        predicates[1]: Method=GET
+        filters[0]: RemoveRequestHeader=Cookie
+
+      routes[1]:
+        id: albums
+        uri: lb://albums-resource-server
+        predicates[0]: Path=/albums
+        predicates[1]: Method=GET
+        filters[0]: RemoveRequestHeader=Cookie
+
+      routes[2]:
+        id: photos
+        uri: lb://photos-resource-server
+        predicates[0]: Path=/photos
+        predicates[1]: Method=GET
+        filters[0]: RemoveRequestHeader=Cookie
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers:
+              - Authorization
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8010

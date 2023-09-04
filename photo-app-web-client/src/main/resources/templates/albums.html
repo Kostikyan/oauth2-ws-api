@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+</head>
+<body>
+<h1>Albums Page</h1>
+<div th:each="album: ${albums}">
+    <p th:text="${album.getAlbumTitle()}"></p>
+    <p th:text="${album.getAlbumId()}"></p>
+    <p th:text="${album.getAlbumUrl()}"></p>
+</div>
+
+</body>
+</html>
